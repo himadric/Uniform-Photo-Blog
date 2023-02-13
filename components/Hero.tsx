@@ -6,7 +6,7 @@ import {
 import { ContentfulEnhancerResult } from "@uniformdev/canvas-contentful";
 
 type HeroProps = ComponentProps<{
-  pageIntro: ContentfulEnhancerResult<{
+  test: ContentfulEnhancerResult<{
     fields: {
       id: string;
       pageName: string;
@@ -16,17 +16,17 @@ type HeroProps = ComponentProps<{
   }>;
 }>;
 
-const Hero: React.FC<HeroProps> = ({ pageIntro }: HeroProps) => {
-  console.log(pageIntro);
+const Hero: React.FC<HeroProps> = ({ test }: HeroProps) => {
+  console.log(test);
   return (
     <div>
-      {/* <h1 className="title">{pageIntro.fields.title["en-US"]}</h1>
+      <h1 className="title">{test.fields.title}</h1>
       <div
         className="description"
         dangerouslySetInnerHTML={{
-          __html: pageIntro.fields.body["en-US"],
+          __html: test.fields.pageName,
         }}
-      /> */}
+      />
     </div>
   );
 };

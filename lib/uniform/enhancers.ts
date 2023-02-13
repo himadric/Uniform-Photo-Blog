@@ -6,11 +6,15 @@ import {
   CANVAS_CONTENTFUL_PARAMETER_TYPES,
 } from "@uniformdev/canvas-contentful";
 import { createClient } from "contentful";
+import getConfig from "next/config";
+
+const { serverRuntimeConfig } = getConfig();
+console.log(serverRuntimeConfig);
 
 const client = createClient({
-  space: "okj8oer2ranj",
-  environment: "master",
-  accessToken: "5NzGXYkT8_-a-DreRme0JDyw8RQp7AGwchTtK3i3vHg",
+  space: serverRuntimeConfig.contentFulSpaceId,
+  environment: serverRuntimeConfig.contentFulEnv,
+  accessToken: serverRuntimeConfig.contentFulApiKey,
 });
 const clientList = new ContentfulClientList({ client });
 const contentfulEnhancer = createContentfulEnhancer({ client: clientList });
